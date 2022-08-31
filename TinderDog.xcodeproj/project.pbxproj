@@ -8,24 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		4EB670B628BF9B3A006A5968 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB670B528BF9B3A006A5968 /* AppDelegate.swift */; };
-		4EB670BA28BF9B3A006A5968 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB670B928BF9B3A006A5968 /* ViewController.swift */; };
+		4EB670BA28BF9B3A006A5968 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB670B928BF9B3A006A5968 /* MainViewController.swift */; };
 		4EB670C028BF9B3A006A5968 /* TinderDog.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4EB670BE28BF9B3A006A5968 /* TinderDog.xcdatamodeld */; };
 		4EB670C228BF9B3B006A5968 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EB670C128BF9B3B006A5968 /* Assets.xcassets */; };
 		4EB670C528BF9B3B006A5968 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EB670C328BF9B3B006A5968 /* LaunchScreen.storyboard */; };
 		4EB670D028BFA429006A5968 /* TapBarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB670CF28BFA429006A5968 /* TapBarModel.swift */; };
 		4EB670D228BFA43C006A5968 /* TapBarConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB670D128BFA43C006A5968 /* TapBarConfiguration.swift */; };
+		4EB670D428BFCF35006A5968 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB670D328BFCF35006A5968 /* MainView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4EB670B228BF9B3A006A5968 /* TinderDog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TinderDog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EB670B528BF9B3A006A5968 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4EB670B928BF9B3A006A5968 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4EB670B928BF9B3A006A5968 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		4EB670BF28BF9B3A006A5968 /* TinderDog.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TinderDog.xcdatamodel; sourceTree = "<group>"; };
 		4EB670C128BF9B3B006A5968 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4EB670C428BF9B3B006A5968 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4EB670C628BF9B3B006A5968 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4EB670CF28BFA429006A5968 /* TapBarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapBarModel.swift; sourceTree = "<group>"; };
 		4EB670D128BFA43C006A5968 /* TapBarConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapBarConfiguration.swift; sourceTree = "<group>"; };
+		4EB670D328BFCF35006A5968 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,9 +60,9 @@
 		4EB670B428BF9B3A006A5968 /* TinderDog */ = {
 			isa = PBXGroup;
 			children = (
+				4EB670D528BFCF40006A5968 /* MainView */,
 				4EB670CD28BF9C32006A5968 /* Application */,
 				4EB670CC28BF9C1F006A5968 /* Services */,
-				4EB670B928BF9B3A006A5968 /* ViewController.swift */,
 				4EB670BE28BF9B3A006A5968 /* TinderDog.xcdatamodeld */,
 			);
 			path = TinderDog;
@@ -92,6 +94,15 @@
 				4EB670D128BFA43C006A5968 /* TapBarConfiguration.swift */,
 			);
 			path = TapBar;
+			sourceTree = "<group>";
+		};
+		4EB670D528BFCF40006A5968 /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				4EB670B928BF9B3A006A5968 /* MainViewController.swift */,
+				4EB670D328BFCF35006A5968 /* MainView.swift */,
+			);
+			path = MainView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,7 +175,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4EB670BA28BF9B3A006A5968 /* ViewController.swift in Sources */,
+				4EB670BA28BF9B3A006A5968 /* MainViewController.swift in Sources */,
+				4EB670D428BFCF35006A5968 /* MainView.swift in Sources */,
 				4EB670B628BF9B3A006A5968 /* AppDelegate.swift in Sources */,
 				4EB670C028BF9B3A006A5968 /* TinderDog.xcdatamodeld in Sources */,
 				4EB670D228BFA43C006A5968 /* TapBarConfiguration.swift in Sources */,

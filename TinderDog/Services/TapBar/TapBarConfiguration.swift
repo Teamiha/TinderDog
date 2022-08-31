@@ -55,11 +55,11 @@ private extension TabBarConfigurator {
     func getCurrentViewController(tab: TabBarModel) -> UIViewController {
         switch tab {
         case .main:
-            return ViewController()
+            return MainViewController()
         case .favorite:
-            return ViewController()
+            return MainViewController()
         case .recomendation:
-            return ViewController()
+            return MainViewController()
         }
     }
     
