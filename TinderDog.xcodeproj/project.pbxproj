@@ -10,7 +10,6 @@
 		4EB670B628BF9B3A006A5968 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB670B528BF9B3A006A5968 /* AppDelegate.swift */; };
 		4EB670B828BF9B3A006A5968 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB670B728BF9B3A006A5968 /* SceneDelegate.swift */; };
 		4EB670BA28BF9B3A006A5968 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB670B928BF9B3A006A5968 /* ViewController.swift */; };
-		4EB670BD28BF9B3A006A5968 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EB670BB28BF9B3A006A5968 /* Main.storyboard */; };
 		4EB670C028BF9B3A006A5968 /* TinderDog.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4EB670BE28BF9B3A006A5968 /* TinderDog.xcdatamodeld */; };
 		4EB670C228BF9B3B006A5968 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EB670C128BF9B3B006A5968 /* Assets.xcassets */; };
 		4EB670C528BF9B3B006A5968 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EB670C328BF9B3B006A5968 /* LaunchScreen.storyboard */; };
@@ -21,7 +20,6 @@
 		4EB670B528BF9B3A006A5968 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4EB670B728BF9B3A006A5968 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		4EB670B928BF9B3A006A5968 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		4EB670BC28BF9B3A006A5968 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4EB670BF28BF9B3A006A5968 /* TinderDog.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TinderDog.xcdatamodel; sourceTree = "<group>"; };
 		4EB670C128BF9B3B006A5968 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4EB670C428BF9B3B006A5968 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -58,16 +56,31 @@
 		4EB670B428BF9B3A006A5968 /* TinderDog */ = {
 			isa = PBXGroup;
 			children = (
-				4EB670B528BF9B3A006A5968 /* AppDelegate.swift */,
-				4EB670B728BF9B3A006A5968 /* SceneDelegate.swift */,
+				4EB670CD28BF9C32006A5968 /* Application */,
+				4EB670CC28BF9C1F006A5968 /* Services */,
 				4EB670B928BF9B3A006A5968 /* ViewController.swift */,
-				4EB670BB28BF9B3A006A5968 /* Main.storyboard */,
-				4EB670C128BF9B3B006A5968 /* Assets.xcassets */,
-				4EB670C328BF9B3B006A5968 /* LaunchScreen.storyboard */,
-				4EB670C628BF9B3B006A5968 /* Info.plist */,
 				4EB670BE28BF9B3A006A5968 /* TinderDog.xcdatamodeld */,
 			);
 			path = TinderDog;
+			sourceTree = "<group>";
+		};
+		4EB670CC28BF9C1F006A5968 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		4EB670CD28BF9C32006A5968 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				4EB670C328BF9B3B006A5968 /* LaunchScreen.storyboard */,
+				4EB670B528BF9B3A006A5968 /* AppDelegate.swift */,
+				4EB670B728BF9B3A006A5968 /* SceneDelegate.swift */,
+				4EB670C128BF9B3B006A5968 /* Assets.xcassets */,
+				4EB670C628BF9B3B006A5968 /* Info.plist */,
+			);
+			path = Application;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -130,7 +143,6 @@
 			files = (
 				4EB670C528BF9B3B006A5968 /* LaunchScreen.storyboard in Resources */,
 				4EB670C228BF9B3B006A5968 /* Assets.xcassets in Resources */,
-				4EB670BD28BF9B3A006A5968 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,14 +163,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		4EB670BB28BF9B3A006A5968 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4EB670BC28BF9B3A006A5968 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		4EB670C328BF9B3B006A5968 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -293,10 +297,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = K9998L29ZT;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TinderDog/Info.plist;
+				INFOPLIST_FILE = TinderDog/Application/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -321,10 +324,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = K9998L29ZT;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TinderDog/Info.plist;
+				INFOPLIST_FILE = TinderDog/Application/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
