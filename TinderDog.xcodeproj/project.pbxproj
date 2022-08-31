@@ -8,22 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		4EB670B628BF9B3A006A5968 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB670B528BF9B3A006A5968 /* AppDelegate.swift */; };
-		4EB670B828BF9B3A006A5968 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB670B728BF9B3A006A5968 /* SceneDelegate.swift */; };
 		4EB670BA28BF9B3A006A5968 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB670B928BF9B3A006A5968 /* ViewController.swift */; };
 		4EB670C028BF9B3A006A5968 /* TinderDog.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4EB670BE28BF9B3A006A5968 /* TinderDog.xcdatamodeld */; };
 		4EB670C228BF9B3B006A5968 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EB670C128BF9B3B006A5968 /* Assets.xcassets */; };
 		4EB670C528BF9B3B006A5968 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EB670C328BF9B3B006A5968 /* LaunchScreen.storyboard */; };
+		4EB670D028BFA429006A5968 /* TapBarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB670CF28BFA429006A5968 /* TapBarModel.swift */; };
+		4EB670D228BFA43C006A5968 /* TapBarConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB670D128BFA43C006A5968 /* TapBarConfiguration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4EB670B228BF9B3A006A5968 /* TinderDog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TinderDog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EB670B528BF9B3A006A5968 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4EB670B728BF9B3A006A5968 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		4EB670B928BF9B3A006A5968 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4EB670BF28BF9B3A006A5968 /* TinderDog.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TinderDog.xcdatamodel; sourceTree = "<group>"; };
 		4EB670C128BF9B3B006A5968 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4EB670C428BF9B3B006A5968 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4EB670C628BF9B3B006A5968 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4EB670CF28BFA429006A5968 /* TapBarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapBarModel.swift; sourceTree = "<group>"; };
+		4EB670D128BFA43C006A5968 /* TapBarConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapBarConfiguration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 		4EB670CC28BF9C1F006A5968 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				4EB670CE28BFA171006A5968 /* TapBar */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -76,11 +79,19 @@
 			children = (
 				4EB670C328BF9B3B006A5968 /* LaunchScreen.storyboard */,
 				4EB670B528BF9B3A006A5968 /* AppDelegate.swift */,
-				4EB670B728BF9B3A006A5968 /* SceneDelegate.swift */,
 				4EB670C128BF9B3B006A5968 /* Assets.xcassets */,
 				4EB670C628BF9B3B006A5968 /* Info.plist */,
 			);
 			path = Application;
+			sourceTree = "<group>";
+		};
+		4EB670CE28BFA171006A5968 /* TapBar */ = {
+			isa = PBXGroup;
+			children = (
+				4EB670CF28BFA429006A5968 /* TapBarModel.swift */,
+				4EB670D128BFA43C006A5968 /* TapBarConfiguration.swift */,
+			);
+			path = TapBar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,7 +167,8 @@
 				4EB670BA28BF9B3A006A5968 /* ViewController.swift in Sources */,
 				4EB670B628BF9B3A006A5968 /* AppDelegate.swift in Sources */,
 				4EB670C028BF9B3A006A5968 /* TinderDog.xcdatamodeld in Sources */,
-				4EB670B828BF9B3A006A5968 /* SceneDelegate.swift in Sources */,
+				4EB670D228BFA43C006A5968 /* TapBarConfiguration.swift in Sources */,
+				4EB670D028BFA429006A5968 /* TapBarModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
