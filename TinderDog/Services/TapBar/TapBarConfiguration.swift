@@ -29,9 +29,16 @@ private extension TabBarConfigurator {
 
     func getTabBarController() -> UITabBarController {
         let tabBarController = UITabBarController()
+        let appearance = UITabBarAppearance()
+        
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .black
+        tabBarController.tabBar.standardAppearance = appearance
+        tabBarController.tabBar.scrollEdgeAppearance = tabBarController.tabBar.standardAppearance
+        
         tabBarController.tabBar.tintColor = .white
         tabBarController.tabBar.unselectedItemTintColor = .lightGray
-        tabBarController.tabBar.backgroundColor = .black
+
         tabBarController.viewControllers = getViewControllers()
 
         return tabBarController
@@ -57,7 +64,7 @@ private extension TabBarConfigurator {
         case .main:
             return MainViewController()
         case .favorite:
-            return MainViewController()
+            return FavoriteTableViewController()
         case .recomendation:
             return MainViewController()
         }

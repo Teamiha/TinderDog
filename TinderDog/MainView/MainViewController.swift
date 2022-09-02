@@ -37,7 +37,6 @@ class MainViewController: UIViewController {
     //MARK: - Views
     
      lazy var dogImage: UIImageView = {
-        
         let image = UIImageView(image: UIImage(named: "testPicture"))
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleAspectFit
