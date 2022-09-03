@@ -36,11 +36,10 @@ class MainViewController: UIViewController {
     
     //MARK: - Views
     
-     lazy var dogImage: UIImageView = {
+    lazy var dogImage: UIImageView = {
         let image = UIImageView(image: UIImage(named: "testPicture"))
-        image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleAspectFit
-         
+        
         return image
     }()
     
@@ -138,6 +137,8 @@ private extension MainViewController {
          ])
             
     }
+    
+    //MARK: - Navigation Bar
     
     func configureNavigationBar() {
         navigationItem.title = "Главная"

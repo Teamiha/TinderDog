@@ -66,7 +66,7 @@ private extension TabBarConfigurator {
         case .favorite:
             return FavoriteTableViewController()
         case .recomendation:
-            return InfoViewController()
+            return RecomendationViewController()
         }
     }
     
