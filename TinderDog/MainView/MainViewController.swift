@@ -81,9 +81,6 @@ class MainViewController: UIViewController {
         return button
     }()
     
-    
-    
-    
     //MARK: - Lifecycle
 
     override func viewDidLoad() {

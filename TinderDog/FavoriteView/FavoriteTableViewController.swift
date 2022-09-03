@@ -9,15 +9,16 @@ import UIKit
 
 class FavoriteTableViewController: UITableViewController {
     
+    //MARK: - Views
+    
     private var testPic = UIImage(named: "testPicture")
     private let cellID = "ID"
 
+    //MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
-        
-
-    
     }
 
     // MARK: - Table view data source
@@ -32,7 +33,6 @@ class FavoriteTableViewController: UITableViewController {
         return 2
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
         let pic = testPic
@@ -40,9 +40,7 @@ class FavoriteTableViewController: UITableViewController {
         content.text = "test"
         content.image = pic
         cell.contentConfiguration = content
+        cell.selectionStyle = .none
         return cell
     }
-    
-    
-    
 }
