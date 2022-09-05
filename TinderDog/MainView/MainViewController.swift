@@ -15,6 +15,7 @@ class MainViewController: UIViewController {
         static let fromImageToTop: CGFloat = 50
         static let imageLeadingSpace: CGFloat = 40
         static let imageTrailingSpace: CGFloat = -40
+        static let fromImageToBottom: CGFloat = -250
         
         static let fromNextButtonTopToImageBottom: CGFloat = 10
         static let nextButtonLeadingSpace: CGFloat = 130
@@ -50,6 +51,8 @@ class MainViewController: UIViewController {
         
         button.tintColor = .black
         
+        button.addTarget(self, action: #selector(nextButtonTaped), for: .touchUpInside)
+        
         button.setImage(image, for: .normal)
         button.setImage(imagePressed, for: .highlighted)
         
@@ -80,6 +83,8 @@ class MainViewController: UIViewController {
         return button
     }()
     
+    var imageURL: URL = URL(string: "https://images.dog.ceo/breeds/pitbull/20190801_154956.jpg")!
+    
     //MARK: - Lifecycle
 
     override func viewDidLoad() {
@@ -88,8 +93,8 @@ class MainViewController: UIViewController {
         view.backgroundColor = .white
         setConstraints()
         configureNavigationBar()
+        
     }
-    
     
 }
 
@@ -97,6 +102,22 @@ class MainViewController: UIViewController {
 //MARK: - Private Methods
 
 private extension MainViewController {
+    
+    @objc func nextButtonTaped() {
+        NetworkManager.shared.fetchImage { result in
+            switch result {
+            case .success(let imageURL):
+                let saveURL = URL(string: "https://images.dog.ceo/breeds/pitbull/20190801_154956.jpg")
+                self.imageURL = URL(string: imageURL) ?? saveURL!
+            case .failure(let error):
+                print(error)
+            }
+        }
+        
+        let data = try? Data(contentsOf: imageURL)
+        dogImage.image = UIImage(data: data!)
+    
+    }
     
     func setupSubviews(_ subviews: UIView...) {
             subviews.forEach { subview in
@@ -115,7 +136,8 @@ private extension MainViewController {
         NSLayoutConstraint.activate([
             dogImage.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.fromImageToTop),
             dogImage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.imageLeadingSpace),
-            dogImage.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: Constants.imageTrailingSpace)
+            dogImage.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: Constants.imageTrailingSpace),
+            dogImage.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: Constants.fromImageToBottom)
         ])
         
         NSLayoutConstraint.activate([
@@ -142,5 +164,6 @@ private extension MainViewController {
     
     func configureNavigationBar() {
         navigationItem.title = "Главная"
+        
     }
 }

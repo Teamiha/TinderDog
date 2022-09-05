@@ -18,6 +18,8 @@
 		4EB670DA28C28D0A006A5968 /* FavoriteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB670D928C28D09006A5968 /* FavoriteTableViewController.swift */; };
 		4EB670DD28C3CBF5006A5968 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB670DC28C3CBF5006A5968 /* InfoViewController.swift */; };
 		4EB670E228C3D60B006A5968 /* RecomendationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB670E128C3D60B006A5968 /* RecomendationViewController.swift */; };
+		4EB670E628C63876006A5968 /* MainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB670E528C63876006A5968 /* MainModel.swift */; };
+		4EB670E828C6396D006A5968 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB670E728C6396D006A5968 /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		4EB670D928C28D09006A5968 /* FavoriteTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewController.swift; sourceTree = "<group>"; };
 		4EB670DC28C3CBF5006A5968 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		4EB670E128C3D60B006A5968 /* RecomendationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecomendationViewController.swift; sourceTree = "<group>"; };
+		4EB670E528C63876006A5968 /* MainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModel.swift; sourceTree = "<group>"; };
+		4EB670E728C6396D006A5968 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +70,7 @@
 		4EB670B428BF9B3A006A5968 /* TinderDog */ = {
 			isa = PBXGroup;
 			children = (
+				4EB670E428C63861006A5968 /* Models */,
 				4EB670DE28C3D08C006A5968 /* RecomendationView */,
 				4EB670DB28C298CF006A5968 /* InfoView */,
 				4EB670D628C28975006A5968 /* FavoriteView */,
@@ -80,6 +85,7 @@
 		4EB670CC28BF9C1F006A5968 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				4EB670E328C62B87006A5968 /* Networking */,
 				4EB670CE28BFA171006A5968 /* TapBar */,
 			);
 			path = Services;
@@ -136,6 +142,22 @@
 				4EB670E128C3D60B006A5968 /* RecomendationViewController.swift */,
 			);
 			path = RecomendationView;
+			sourceTree = "<group>";
+		};
+		4EB670E328C62B87006A5968 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				4EB670E728C6396D006A5968 /* NetworkManager.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		4EB670E428C63861006A5968 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4EB670E528C63876006A5968 /* MainModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,10 +234,12 @@
 				4EB670DA28C28D0A006A5968 /* FavoriteTableViewController.swift in Sources */,
 				4EB670D428BFCF35006A5968 /* MainView.swift in Sources */,
 				4EB670B628BF9B3A006A5968 /* AppDelegate.swift in Sources */,
+				4EB670E828C6396D006A5968 /* NetworkManager.swift in Sources */,
 				4EB670E228C3D60B006A5968 /* RecomendationViewController.swift in Sources */,
 				4EB670C028BF9B3A006A5968 /* TinderDog.xcdatamodeld in Sources */,
 				4EB670D228BFA43C006A5968 /* TapBarConfiguration.swift in Sources */,
 				4EB670DD28C3CBF5006A5968 /* InfoViewController.swift in Sources */,
+				4EB670E628C63876006A5968 /* MainModel.swift in Sources */,
 				4EB670D028BFA429006A5968 /* TapBarModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
