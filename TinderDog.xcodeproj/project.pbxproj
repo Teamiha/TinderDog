@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E2BCA4B28C7B43E0066C78E /* CoreDataStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2BCA4A28C7B43E0066C78E /* CoreDataStorageManager.swift */; };
 		4EB670B628BF9B3A006A5968 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB670B528BF9B3A006A5968 /* AppDelegate.swift */; };
 		4EB670BA28BF9B3A006A5968 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB670B928BF9B3A006A5968 /* MainViewController.swift */; };
 		4EB670C028BF9B3A006A5968 /* TinderDog.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4EB670BE28BF9B3A006A5968 /* TinderDog.xcdatamodeld */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4E2BCA4A28C7B43E0066C78E /* CoreDataStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStorageManager.swift; sourceTree = "<group>"; };
 		4EB670B228BF9B3A006A5968 /* TinderDog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TinderDog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EB670B528BF9B3A006A5968 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4EB670B928BF9B3A006A5968 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -51,6 +53,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4E2BCA4928C7B41D0066C78E /* StorageManager */ = {
+			isa = PBXGroup;
+			children = (
+				4E2BCA4A28C7B43E0066C78E /* CoreDataStorageManager.swift */,
+			);
+			path = StorageManager;
+			sourceTree = "<group>";
+		};
 		4EB670A928BF9B3A006A5968 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +95,7 @@
 		4EB670CC28BF9C1F006A5968 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				4E2BCA4928C7B41D0066C78E /* StorageManager */,
 				4EB670E328C62B87006A5968 /* Networking */,
 				4EB670CE28BFA171006A5968 /* TapBar */,
 			);
@@ -240,6 +251,7 @@
 				4EB670D228BFA43C006A5968 /* TapBarConfiguration.swift in Sources */,
 				4EB670DD28C3CBF5006A5968 /* InfoViewController.swift in Sources */,
 				4EB670E628C63876006A5968 /* MainModel.swift in Sources */,
+				4E2BCA4B28C7B43E0066C78E /* CoreDataStorageManager.swift in Sources */,
 				4EB670D028BFA429006A5968 /* TapBarModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

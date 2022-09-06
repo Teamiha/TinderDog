@@ -65,6 +65,8 @@ class MainViewController: UIViewController {
         
         button.tintColor = .systemPink
         
+        button.addTarget(self, action: #selector(favoriteButtonTaped), for: .touchUpInside)
+        
         button.setImage(image, for: .normal)
         
         return button
@@ -117,6 +119,10 @@ private extension MainViewController {
         let data = try? Data(contentsOf: imageURL)
         dogImage.image = UIImage(data: data!)
     
+    }
+    
+    @objc func favoriteButtonTaped() {
+        StorageManager.shared.addPictureToFavorites(url: imageURL)
     }
     
     func setupSubviews(_ subviews: UIView...) {

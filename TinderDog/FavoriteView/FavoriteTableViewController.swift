@@ -13,14 +13,36 @@ class FavoriteTableViewController: UITableViewController {
     
     private var testPic = UIImage(named: "testPicture")
     private let cellID = "ID"
+    private var item: [FavoritePictures] = []
 
     //MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadFavoriteData()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print(item.count)
+        print(item)
+        print(item[0].imageURL)
+    }
+    
+    //MARK: - StorageManager
+    
+    func loadFavoriteData() {
+        StorageManager.shared.fetchData { result in
+            switch result {
+            case .success(let items):
+                self.item = items
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
