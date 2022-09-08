@@ -42,35 +42,12 @@ class StorageManager {
         }
     }
     
-//    private var favoritePicturesArray: [FavoritePictures] = []
-//
-//    private func loadFavoriteData() {
-//        StorageManager.shared.fetchData { result in
-//            switch result {
-//            case .success(let items):
-//                self.favoritePicturesArray = items
-//            case .failure(let error):
-//                print(error.localizedDescription)
-//            }
-//        }
-//    }
     
     func addPictureToFavorites(string: String) {
         let item = FavoritePictures(context: viewContext)
         item.imageURL = string
         saveContext()
-        print("--------------")
-        print(item)
-        print("--------------")
-        print(string)
-        print("--------------")
-        
     }
-    
-//    func initFavoriteStorage() {
-//        loadFavoriteData()
-//    }
-    
     
 
 

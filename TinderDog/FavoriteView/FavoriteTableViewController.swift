@@ -26,21 +26,11 @@ class FavoriteTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print(items[0])
+        loadPosts()
+        tableView.reloadData()
     }
     
     //MARK: - StorageManager
-    
-    func loadFavoriteData() {
-        StorageManager.shared.fetchData { result in
-            switch result {
-            case .success(let items):
-                self.item = items
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-    }
     
     func loadPosts() {
         StorageManager.shared.fetchData() { [weak self] result in
@@ -77,12 +67,15 @@ class FavoriteTableViewController: UITableViewController {
         
         let data = try? Data(contentsOf: URL(string: item.message) ?? URL(string: "https://images.dog.ceo/breeds/pitbull/20190801_154956.jpg")!)
         
-        let pic = UIImage(data: data!)
+        let picture = UIImage(data: data!)
+        
         var content = cell.defaultContentConfiguration()
-//        content.text = "test"
-        content.image = pic
+        content.imageProperties.reservedLayoutSize = .init(width: 350, height: 300)
+        content.image = picture
+        
         cell.contentConfiguration = content
         cell.selectionStyle = .none
+        
         return cell
     }
 }
