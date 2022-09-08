@@ -14,20 +14,19 @@ class FavoriteTableViewController: UITableViewController {
     private var testPic = UIImage(named: "testPicture")
     private let cellID = "ID"
     private var item: [FavoritePictures] = []
+    private var items: [Picture] = []
 
     //MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadFavoriteData()
+        loadPosts()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print(item.count)
-        print(item)
-        print(item[0].imageURL)
+        print(items[0])
     }
     
     //MARK: - StorageManager
@@ -43,6 +42,22 @@ class FavoriteTableViewController: UITableViewController {
         }
     }
     
+    func loadPosts() {
+        StorageManager.shared.fetchData() { [weak self] result in
+            switch result {
+            case .success(let pictures):
+                self?.items = pictures.map { pictureModel in
+                    Picture(
+                        message: pictureModel.imageURL!,
+                        status: "Ok"
+                    )
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -51,15 +66,20 @@ class FavoriteTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       
-        return 2
+        let number = items.count
+        return number
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
-        let pic = testPic
+       
+        let item = items[indexPath.row]
+        
+        let data = try? Data(contentsOf: URL(string: item.message) ?? URL(string: "https://images.dog.ceo/breeds/pitbull/20190801_154956.jpg")!)
+        
+        let pic = UIImage(data: data!)
         var content = cell.defaultContentConfiguration()
-        content.text = "test"
+//        content.text = "test"
         content.image = pic
         cell.contentConfiguration = content
         cell.selectionStyle = .none

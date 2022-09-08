@@ -55,14 +55,14 @@ class StorageManager {
 //        }
 //    }
     
-    func addPictureToFavorites(url: URL) {
+    func addPictureToFavorites(string: String) {
         let item = FavoritePictures(context: viewContext)
-        item.imageURL = url
+        item.imageURL = string
         saveContext()
         print("--------------")
         print(item)
         print("--------------")
-        print(url)
+        print(string)
         print("--------------")
         
     }

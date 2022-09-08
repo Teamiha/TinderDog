@@ -85,7 +85,7 @@ class MainViewController: UIViewController {
         return button
     }()
     
-    var imageURL: URL = URL(string: "https://images.dog.ceo/breeds/pitbull/20190801_154956.jpg")!
+    var imageURL: String = "https://images.dog.ceo/breeds/pitbull/20190801_154956.jpg"
     
     //MARK: - Lifecycle
 
@@ -106,23 +106,23 @@ class MainViewController: UIViewController {
 private extension MainViewController {
     
     @objc func nextButtonTaped() {
+        
         NetworkManager.shared.fetchImage { result in
             switch result {
             case .success(let imageURL):
-                let saveURL = URL(string: "https://images.dog.ceo/breeds/pitbull/20190801_154956.jpg")
-                self.imageURL = URL(string: imageURL) ?? saveURL!
+                self.imageURL = imageURL
+               
+                let data = try? Data(contentsOf: URL(string: imageURL) ?? URL(string: "https://images.dog.ceo/breeds/pitbull/20190801_154956.jpg")!)
+                self.dogImage.image = UIImage(data: data!)
+                
             case .failure(let error):
                 print(error)
             }
         }
-        
-        let data = try? Data(contentsOf: imageURL)
-        dogImage.image = UIImage(data: data!)
-    
     }
     
     @objc func favoriteButtonTaped() {
-        StorageManager.shared.addPictureToFavorites(url: imageURL)
+        StorageManager.shared.addPictureToFavorites(string: imageURL)
     }
     
     func setupSubviews(_ subviews: UIView...) {
