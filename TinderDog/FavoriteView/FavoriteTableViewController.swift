@@ -13,8 +13,7 @@ class FavoriteTableViewController: UITableViewController {
     
     private var testPic = UIImage(named: "testPicture")
     private let cellID = "ID"
-    private var item: [FavoritePictures] = []
-    private var items: [Picture] = []
+    private var favoritePicture: [Picture] = []
 
     //MARK: - Lifecycle
     
@@ -33,10 +32,10 @@ class FavoriteTableViewController: UITableViewController {
     //MARK: - StorageManager
     
     func loadPosts() {
-        StorageManager.shared.fetchData() { [weak self] result in
+        StorageManager.shared.fetchFavoriteImageData() { [weak self] result in
             switch result {
             case .success(let pictures):
-                self?.items = pictures.map { pictureModel in
+                self?.favoritePicture = pictures.map { pictureModel in
                     Picture(
                         message: pictureModel.imageURL!,
                         status: "Ok"
@@ -56,14 +55,14 @@ class FavoriteTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let number = items.count
+        let number = favoritePicture.count
         return number
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
        
-        let item = items[indexPath.row]
+        let item = favoritePicture[indexPath.row]
         
         let data = try? Data(contentsOf: URL(string: item.message) ?? URL(string: "https://images.dog.ceo/breeds/pitbull/20190801_154956.jpg")!)
         

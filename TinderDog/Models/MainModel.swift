@@ -11,3 +11,7 @@ struct Picture: Codable {
     let message: String
     let status : String
 }
+
+struct Breed: Codable {
+    let breed: String
+}

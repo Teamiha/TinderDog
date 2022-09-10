@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21G83" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="FavoriteBreeds" representedClassName="FavoriteBreeds" syncable="YES" codeGenerationType="class">
+        <attribute name="breed" optional="YES" attributeType="String"/>
+    </entity>
     <entity name="FavoritePictures" representedClassName="FavoritePictures" syncable="YES" codeGenerationType="class">
         <attribute name="id" optional="YES" attributeType="String"/>
         <attribute name="imageURL" optional="YES" attributeType="String"/>
     </entity>
     <elements>
+        <element name="FavoriteBreeds" positionX="95.1484375" positionY="-20.89453125" width="128" height="58"/>
         <element name="FavoritePictures" positionX="-63" positionY="-18" width="128" height="59"/>
     </elements>
 </model>
