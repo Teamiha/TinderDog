@@ -41,6 +41,26 @@ final class NetworkManager {
         }.resume()
     }
     
-    
+    func fetchFavoriteBreedImage(breed: String, completion: @escaping(Result<String, NetworkError>) -> Void) {
+        guard let url = URL(string: "https://dog.ceo/api/breed/\(breed)/images/random") else { return }
+        URLSession.shared.dataTask(with: url) { data, _, error in
+            guard let data = data else {
+                print(error?.localizedDescription ?? "No error description")
+                completion(.failure(.noData))
+                return
+            }
+            do {
+                let image = try JSONDecoder().decode(Picture.self, from: data)
+                let test = image.message
+                print(test)
+                DispatchQueue.main.async {
+                    completion(.success(test))
+                }
+                
+            } catch  {
+                completion(.failure(.decodingError))
+            }
+        }.resume()
+    }
     
 }

@@ -103,8 +103,6 @@ class StorageManager {
             favoriteItemArray.append(item)
             addBreedToFavorite(string: string)
             
-            calculateFavoriteBreed()
-            
             saveContext()
         }
     }
