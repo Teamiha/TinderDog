@@ -42,11 +42,32 @@ class StorageManager {
         }
     }
     
+    private var favoriteItemArray: [FavoritePictures] = []
+    
+    private func loadFavoriteData() {
+        StorageManager.shared.fetchData { result in
+            switch result {
+            case .success(let items):
+                self.favoriteItemArray = items
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
     
     func addPictureToFavorites(string: String) {
-        let item = FavoritePictures(context: viewContext)
-        item.imageURL = string
-        saveContext()
+        if favoriteItemArray.contains(where: { $0.imageURL == string}) {
+        } else {
+            let item = FavoritePictures(context: viewContext)
+            item.imageURL = string
+            favoriteItemArray.append(item)
+            saveContext()
+        }
+    }
+    
+    func initFavoriteStorage() {
+        loadFavoriteData()
     }
     
 

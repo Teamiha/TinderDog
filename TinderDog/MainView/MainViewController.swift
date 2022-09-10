@@ -91,11 +91,11 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        StorageManager.shared.initFavoriteStorage()
         setupSubviews(dogImage, nextButton, favoriteButton, detailButton)
         view.backgroundColor = .white
         setConstraints()
         configureNavigationBar()
-        
     }
     
 }
