@@ -82,6 +82,9 @@ class MainViewController: UIViewController {
         button.setImage(image, for: .normal)
         button.setImage(imagePressed, for: .highlighted)
         
+        //TODU: - Add detailSystem
+        button.isHidden = true
+        
         return button
     }()
     

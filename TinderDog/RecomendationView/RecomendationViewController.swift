@@ -20,13 +20,13 @@ class RecomendationViewController: UIViewController {
         static let imageTrailingSpace: CGFloat = -40
         static let fromImageToBottom: CGFloat = -350
         
-        static let fromLabelToImageSpacing: CGFloat = 30
+        static let fromLabelToImageSpacing: CGFloat = 17
         
-        static let fromRecomendButtonTopToImageBottom: CGFloat = 80
+        static let fromRecomendButtonTopToImageBottom: CGFloat = 90
         static let RecomendButtonLeadingSpace: CGFloat = 130
         static let RecomendButtonTrailingSpace: CGFloat = -130
         
-        static let fromClearDataButtonTopToImageBottom: CGFloat = 80
+        static let fromClearDataButtonTopToImageBottom: CGFloat = 90
         static let ClearDataButtonLeadingSpace: CGFloat = 40
         static let ClearDataButtonTrailingSpace: CGFloat = -270
     }
@@ -57,7 +57,9 @@ class RecomendationViewController: UIViewController {
     
     lazy var labelRecommendBreeds: UILabel = {
         let label = UILabel()
-        label.text = "Название породы"
+        var breedName = ""
+        label.numberOfLines = 2
+        label.text = "Тут будет написана ваша любимая порода"
         label.textAlignment = .center
         label.font = .systemFont(ofSize: 30)
         return label
@@ -96,7 +98,11 @@ private extension RecomendationViewController{
     @objc func recomendationButtonTaped() {
         let favoriteBreed = StorageManager.shared.calculateFavoriteBreed()
         let favoriteBreedText = favoriteBreed?.capitalized
-        labelRecommendBreeds.text = favoriteBreedText ?? "Error"
+        labelRecommendBreeds.text = """
+        Ваша любимая порода:
+        \(favoriteBreedText ?? "Error")
+        """
+ 
         
         NetworkManager.shared.fetchFavoriteBreedImage(breed: favoriteBreed!) { result in
             switch result {
