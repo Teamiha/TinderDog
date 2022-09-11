@@ -70,15 +70,13 @@ class RecomendationViewController: UIViewController {
         
         button.tintColor = .red
         
+        button.addTarget(self, action: #selector(clearDataButtonTaped), for: .touchUpInside)
+        
         button.setImage(image, for: .normal)
         button.setImage(imagePressed, for: .highlighted)
         
         return button
     }()
-    
-    
-    
-    
 
     //MARK: - Lifecycle
     
@@ -112,6 +110,11 @@ private extension RecomendationViewController{
             }
         }
     }
+    
+    @objc func clearDataButtonTaped() {
+        StorageManager.shared.clearBreedData()
+    }
+    
     
     func setupSubviews(_ subviews: UIView...) {
         subviews.forEach { subview in

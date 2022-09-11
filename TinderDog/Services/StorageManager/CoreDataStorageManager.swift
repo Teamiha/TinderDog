@@ -79,15 +79,6 @@ class StorageManager {
         }
     }
     
-//case .success(let pictures):
-//    self?.favoritePicture = pictures.map { pictureModel in
-//        Picture(
-//            message: pictureModel.imageURL!,
-//            status: "Ok"
-//        )
-//    }
-    
-    
     func initFavoriteStorage() {
         loadFavoritePictureData()
         loadFavoriteBreedsData()
@@ -116,19 +107,45 @@ class StorageManager {
         }
         
         let favoriteBreed = counts.max{ a, b in a.value < b.value }
+        if favoriteBreed?.value ?? 0 > 0 {
+            return favoriteBreed?.key
+        } else {
+            return "Error"
+        }
         
-        return favoriteBreed?.key
     }
     
     private func addBreedToFavorite(string: String) {
         let breed = FavoriteBreeds(context: viewContext)
-        breed.breed = string.components(separatedBy: "/")[4]
+        breed.breed = formateUrlToBreedName(string: string)
         favoriteBreedArray.append(breed.breed!)
         
-        print("-----------------")
-        print(favoriteBreedArray)
-        print("-----------------")
-        
+        saveContext()
+    }
+    
+    private func formateUrlToBreedName(string: String) -> String {
+        var breed = string.components(separatedBy: "/")[4]
+        if breed.contains("-"){
+            breed = breed.replacingOccurrences(of: "-", with: "/", options: .literal, range: nil)
+            return(breed)
+        } else {
+            return(breed)
+        }
+    }
+    
+    func clearBreedData() {
+        favoriteBreedArray = []
+        let fetchRequest = FavoriteBreeds.fetchRequest()
+        fetchRequest.returnsObjectsAsFaults = false
+        do {
+            let results = try viewContext.fetch(fetchRequest)
+            for object in results {
+                guard let objectData = object as? NSManagedObject else {continue}
+                viewContext.delete(objectData)
+            }
+        } catch let error {
+            print(error)
+        }
         
         saveContext()
     }
