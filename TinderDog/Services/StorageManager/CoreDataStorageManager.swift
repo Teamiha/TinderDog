@@ -98,6 +98,20 @@ class StorageManager {
         }
     }
     
+    func deletePictureFromFavorite(numberOfRow: Int) {
+        let fetchRequest = FavoritePictures.fetchRequest()
+        
+        do {
+            let results = try viewContext.fetch(fetchRequest)
+                guard let objectData = results[numberOfRow] as? NSManagedObject else {return}
+                viewContext.delete(objectData)
+            
+        } catch let error {
+            print(error)
+        }
+        saveContext()
+    }
+    
     // MARK: - FavoriteBreed
     
     func calculateFavoriteBreed() -> String? {

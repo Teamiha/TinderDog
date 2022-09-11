@@ -11,7 +11,7 @@ class FavoriteTableViewController: UITableViewController {
     
     //MARK: - Views
     
-    private var testPic = UIImage(named: "testPicture")
+//    private var testPic = UIImage(named: "testPicture")
     private let cellID = "ID"
     private var favoritePicture: [Picture] = []
 
@@ -21,6 +21,7 @@ class FavoriteTableViewController: UITableViewController {
         super.viewDidLoad()
         loadPosts()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,11 +50,6 @@ class FavoriteTableViewController: UITableViewController {
     
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        
-        return 1
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let number = favoritePicture.count
         return number
@@ -74,7 +70,23 @@ class FavoriteTableViewController: UITableViewController {
         
         cell.contentConfiguration = content
         cell.selectionStyle = .none
+                
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+          return CGFloat(5)
+      }
+    
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let indexPathForCoreDataDelete = indexPath[1]
+        
+        favoritePicture.remove(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .automatic)
+        
+        StorageManager.shared.deletePictureFromFavorite(numberOfRow: indexPathForCoreDataDelete)
     }
 }
