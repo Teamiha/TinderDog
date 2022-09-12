@@ -11,7 +11,6 @@ class FavoriteTableViewController: UITableViewController {
     
     //MARK: - Views
     
-//    private var testPic = UIImage(named: "testPicture")
     private let cellID = "ID"
     private var favoritePicture: [Picture] = []
 
@@ -21,6 +20,7 @@ class FavoriteTableViewController: UITableViewController {
         super.viewDidLoad()
         loadPosts()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
+        configureNavigationBar()
         
     }
     
@@ -49,11 +49,13 @@ class FavoriteTableViewController: UITableViewController {
     }
     
     // MARK: - Table view data source
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let number = favoritePicture.count
         return number
+        
     }
+    
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
@@ -67,18 +69,14 @@ class FavoriteTableViewController: UITableViewController {
         var content = cell.defaultContentConfiguration()
         content.imageProperties.reservedLayoutSize = .init(width: 350, height: 300)
         content.image = picture
-        
+
+        cell.layer.borderWidth = 10
+        cell.layer.borderColor = UIColor.systemBackground.cgColor
         cell.contentConfiguration = content
         cell.selectionStyle = .none
-                
         
         return cell
     }
-    
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-          return CGFloat(5)
-      }
-    
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
@@ -88,5 +86,12 @@ class FavoriteTableViewController: UITableViewController {
         tableView.deleteRows(at: [indexPath], with: .automatic)
         
         StorageManager.shared.deletePictureFromFavorite(numberOfRow: indexPathForCoreDataDelete)
+    }
+    
+    //MARK: - Navigation Bar
+    
+    func configureNavigationBar() {
+        navigationItem.title = "Избранное"
+        
     }
 }

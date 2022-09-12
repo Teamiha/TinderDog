@@ -165,7 +165,7 @@ private extension RecomendationViewController{
     //MARK: - Navigation Bar
     
     func configureNavigationBar() {
-        navigationItem.title = "Главная"
+        navigationItem.title = "Рекомендации"
         
     }
     
