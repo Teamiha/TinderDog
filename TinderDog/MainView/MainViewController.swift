@@ -29,7 +29,7 @@ class MainViewController: UIViewController {
         
         static let favoriteButtonTopToImageBottom: CGFloat = 25
         static let favoriteLeadingSpace: CGFloat = 270
-        static let favoriteTrailingSpace: CGFloat = -40
+        static let favoriteTrailingSpace: CGFloat = -20
         static let favoriteButtonSize: CGFloat = 70
     }
     
@@ -64,7 +64,7 @@ class MainViewController: UIViewController {
         let image = UIImage(systemName: "heart.circle.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: Constants.favoriteButtonSize))
         
         button.tintColor = .systemPink
-        
+                
         button.addTarget(self, action: #selector(favoriteButtonTaped), for: .touchUpInside)
         
         button.setImage(image, for: .normal)
@@ -115,8 +115,12 @@ private extension MainViewController {
             case .success(let imageURL):
                 self.imageURL = imageURL
                
-                let data = try? Data(contentsOf: URL(string: imageURL) ?? URL(string: "https://images.dog.ceo/breeds/pitbull/20190801_154956.jpg")!)
-                self.dogImage.image = UIImage(data: data!)
+                DispatchQueue.global().async {
+                    let data = try? Data(contentsOf: URL(string: imageURL) ?? URL(string: "https://images.dog.ceo/breeds/pitbull/20190801_154956.jpg")!)
+                    DispatchQueue.main.async {
+                        self.dogImage.image = UIImage(data: data!)
+                    }
+                }
                 
             case .failure(let error):
                 print(error)

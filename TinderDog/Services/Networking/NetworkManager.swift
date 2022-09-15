@@ -30,10 +30,10 @@ final class NetworkManager {
             }
             do {
                 let image = try JSONDecoder().decode(Picture.self, from: data)
-                let test = image.message
-                print(test)
+                let result = image.message
+                print(result)
                 DispatchQueue.main.async {
-                    completion(.success(test))
+                    completion(.success(result))
                 }
             } catch  {
                 completion(.failure(.decodingError))
@@ -62,6 +62,26 @@ final class NetworkManager {
                     completion(.success(test))
                 }
                 
+            } catch  {
+                completion(.failure(.decodingError))
+            }
+        }.resume()
+    }
+    
+    func fetchFavoriteImage(URL: URL?, completion: @escaping(Result<Data, NetworkError>) -> Void) {
+        guard let url = URL else {return}
+
+        URLSession.shared.dataTask(with: url) { data, _, error in
+            guard let data = data else {
+                print(error?.localizedDescription ?? "No error description")
+                completion(.failure(.noData))
+                return
+            }
+            do {
+                let result = data
+                DispatchQueue.main.async {
+                    completion(.success(result))
+                }
             } catch  {
                 completion(.failure(.decodingError))
             }

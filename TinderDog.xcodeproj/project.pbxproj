@@ -15,12 +15,12 @@
 		4EB670C528BF9B3B006A5968 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EB670C328BF9B3B006A5968 /* LaunchScreen.storyboard */; };
 		4EB670D028BFA429006A5968 /* TapBarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB670CF28BFA429006A5968 /* TapBarModel.swift */; };
 		4EB670D228BFA43C006A5968 /* TapBarConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB670D128BFA43C006A5968 /* TapBarConfiguration.swift */; };
-		4EB670D428BFCF35006A5968 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB670D328BFCF35006A5968 /* MainView.swift */; };
 		4EB670DA28C28D0A006A5968 /* FavoriteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB670D928C28D09006A5968 /* FavoriteTableViewController.swift */; };
 		4EB670DD28C3CBF5006A5968 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB670DC28C3CBF5006A5968 /* InfoViewController.swift */; };
 		4EB670E228C3D60B006A5968 /* RecomendationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB670E128C3D60B006A5968 /* RecomendationViewController.swift */; };
 		4EB670E628C63876006A5968 /* MainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB670E528C63876006A5968 /* MainModel.swift */; };
 		4EB670E828C6396D006A5968 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB670E728C6396D006A5968 /* NetworkManager.swift */; };
+		4EBE9B6A28D3A72A00752A02 /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBE9B6928D3A72A00752A02 /* Math.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,12 +34,12 @@
 		4EB670C628BF9B3B006A5968 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4EB670CF28BFA429006A5968 /* TapBarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapBarModel.swift; sourceTree = "<group>"; };
 		4EB670D128BFA43C006A5968 /* TapBarConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapBarConfiguration.swift; sourceTree = "<group>"; };
-		4EB670D328BFCF35006A5968 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		4EB670D928C28D09006A5968 /* FavoriteTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewController.swift; sourceTree = "<group>"; };
 		4EB670DC28C3CBF5006A5968 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		4EB670E128C3D60B006A5968 /* RecomendationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecomendationViewController.swift; sourceTree = "<group>"; };
 		4EB670E528C63876006A5968 /* MainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModel.swift; sourceTree = "<group>"; };
 		4EB670E728C6396D006A5968 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		4EBE9B6928D3A72A00752A02 /* Math.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Math.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +95,7 @@
 		4EB670CC28BF9C1F006A5968 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				4EBE9B6B28D3A73100752A02 /* Math */,
 				4E2BCA4928C7B41D0066C78E /* StorageManager */,
 				4EB670E328C62B87006A5968 /* Networking */,
 				4EB670CE28BFA171006A5968 /* TapBar */,
@@ -126,7 +127,6 @@
 			isa = PBXGroup;
 			children = (
 				4EB670B928BF9B3A006A5968 /* MainViewController.swift */,
-				4EB670D328BFCF35006A5968 /* MainView.swift */,
 			);
 			path = MainView;
 			sourceTree = "<group>";
@@ -169,6 +169,14 @@
 				4EB670E528C63876006A5968 /* MainModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		4EBE9B6B28D3A73100752A02 /* Math */ = {
+			isa = PBXGroup;
+			children = (
+				4EBE9B6928D3A72A00752A02 /* Math.swift */,
+			);
+			path = Math;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -243,7 +251,6 @@
 			files = (
 				4EB670BA28BF9B3A006A5968 /* MainViewController.swift in Sources */,
 				4EB670DA28C28D0A006A5968 /* FavoriteTableViewController.swift in Sources */,
-				4EB670D428BFCF35006A5968 /* MainView.swift in Sources */,
 				4EB670B628BF9B3A006A5968 /* AppDelegate.swift in Sources */,
 				4EB670E828C6396D006A5968 /* NetworkManager.swift in Sources */,
 				4EB670E228C3D60B006A5968 /* RecomendationViewController.swift in Sources */,
@@ -253,6 +260,7 @@
 				4EB670E628C63876006A5968 /* MainModel.swift in Sources */,
 				4E2BCA4B28C7B43E0066C78E /* CoreDataStorageManager.swift in Sources */,
 				4EB670D028BFA429006A5968 /* TapBarModel.swift in Sources */,
+				4EBE9B6A28D3A72A00752A02 /* Math.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
