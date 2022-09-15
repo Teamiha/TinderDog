@@ -88,8 +88,6 @@ class RecomendationViewController: UIViewController {
         setupSubviews(dogImage, clearDataButton, labelRecommendBreeds, showRecomendButton)
         setConstraints()
         configureNavigationBar()
-
-        
     }
 }
 
@@ -106,11 +104,14 @@ private extension RecomendationViewController{
         
         NetworkManager.shared.fetchFavoriteBreedImage(breed: favoriteBreed!) { result in
             switch result {
-                
             case .success(let imageURL):
-                let data = try? Data(contentsOf: URL(string: imageURL) ?? URL(string: "https://images.dog.ceo/breeds/pitbull/20190801_154956.jpg")!)
-                self.dogImage.image = UIImage(data: data!)
                 
+                DispatchQueue.global().async {
+                    let data = try? Data(contentsOf: URL(string: imageURL) ?? URL(string: "https://images.dog.ceo/breeds/pitbull/20190801_154956.jpg")!)
+                    DispatchQueue.main.async {
+                        self.dogImage.image = UIImage(data: data!)
+                    }
+                }
             case .failure(let error):
                 print(error)
             }
