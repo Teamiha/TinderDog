@@ -31,6 +31,10 @@ class MainViewController: UIViewController {
         static let favoriteLeadingSpace: CGFloat = 270
         static let favoriteTrailingSpace: CGFloat = -20
         static let favoriteButtonSize: CGFloat = 70
+        
+        static let imageWasLikedSize: CGFloat = 100
+        static let imageWasLikedTopToImageTop: CGFloat = 110
+        static let imageWasLikedBottomToImageBottom: CGFloat = -120
     }
     
     
@@ -40,6 +44,14 @@ class MainViewController: UIViewController {
     lazy var dogImage: UIImageView = {
         let image = UIImageView(image: UIImage(named: "testPicture"))
         image.contentMode = .scaleAspectFit
+        
+        return image
+    }()
+    
+    lazy var imageWasLiked: UIImageView = {
+        let image = UIImageView(image: UIImage(systemName: "heart.circle.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: Constants.imageWasLikedSize)))
+        image.tintColor = .systemPink
+        image.alpha = 0
         
         return image
     }()
@@ -95,7 +107,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         StorageManager.shared.initFavoriteStorage()
-        setupSubviews(dogImage, nextButton, favoriteButton, detailButton)
+        setupSubviews(dogImage, nextButton, favoriteButton, detailButton, imageWasLiked)
         view.backgroundColor = .white
         setConstraints()
         configureNavigationBar()
@@ -130,6 +142,7 @@ private extension MainViewController {
     
     @objc func favoriteButtonTaped() {
         StorageManager.shared.addPictureToFavorites(string: imageURL)
+        fadeEffect()
     }
     
     func setupSubviews(_ subviews: UIView...) {
@@ -138,6 +151,16 @@ private extension MainViewController {
             }
         }
     
+    func fadeEffect(duration: TimeInterval = 0.5) {
+        UIImageView.animate(withDuration: duration, animations: {
+            self.imageWasLiked.alpha = 1.0
+        }) { _ in
+            UIImageView.animate(withDuration: duration, animations: {
+                self.imageWasLiked.alpha = 0.0
+             })
+        }
+     }
+    
 //MARK: - Constraints
     
     func setConstraints() {
@@ -145,6 +168,14 @@ private extension MainViewController {
         nextButton.translatesAutoresizingMaskIntoConstraints = false
         favoriteButton.translatesAutoresizingMaskIntoConstraints = false
         detailButton.translatesAutoresizingMaskIntoConstraints = false
+        imageWasLiked.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            imageWasLiked.topAnchor.constraint(equalTo: dogImage.topAnchor, constant: Constants.imageWasLikedTopToImageTop),
+            imageWasLiked.leadingAnchor.constraint(equalTo: dogImage.leadingAnchor),
+            imageWasLiked.trailingAnchor.constraint(equalTo: dogImage.trailingAnchor),
+            imageWasLiked.bottomAnchor.constraint(equalTo: dogImage.bottomAnchor, constant: Constants.imageWasLikedBottomToImageBottom)
+        ])
         
         NSLayoutConstraint.activate([
             dogImage.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.fromImageToTop),
