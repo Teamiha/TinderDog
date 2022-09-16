@@ -44,10 +44,6 @@ final class NetworkManager {
     func fetchFavoriteBreedImage(breed: String, completion: @escaping(Result<String, NetworkError>) -> Void) {
         guard let url = URL(string: "https://dog.ceo/api/breed/\(breed)/images/random") else { return }
         
-        
-        // TODU: - REMOVE PRINT
-        print(url)
-        
         URLSession.shared.dataTask(with: url) { data, _, error in
             guard let data = data else {
                 print(error?.localizedDescription ?? "No error description")
