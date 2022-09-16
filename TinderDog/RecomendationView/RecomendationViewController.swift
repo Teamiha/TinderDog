@@ -119,9 +119,20 @@ private extension RecomendationViewController{
     }
     
     @objc func clearDataButtonTaped() {
-        StorageManager.shared.clearBreedData()
+        
+        let alert = UIAlertController(title: "ВНИМАНИЕ", message: "Вы уверены что хотите очистить базу данных рекомендаций?", preferredStyle: .alert)
+        
+        let deleteAction = UIAlertAction(title: "DELETE", style: .destructive) { _ in
+            
+            StorageManager.shared.clearBreedData()
+        }
+        
+        let abortAction = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        alert.addAction(deleteAction)
+        alert.addAction(abortAction)
+        present(alert, animated: true)
     }
-    
     
     func setupSubviews(_ subviews: UIView...) {
         subviews.forEach { subview in

@@ -161,7 +161,7 @@ private extension MainViewController {
         }
      }
     
-//MARK: - Constraints
+    //MARK: - Constraints
     
     func setConstraints() {
         dogImage.translatesAutoresizingMaskIntoConstraints = false

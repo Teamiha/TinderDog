@@ -106,6 +106,21 @@ class FavoriteTableViewController: UITableViewController {
         }
     }
     
+    //MARK: - Alert
+    
+    func showAlert(with title: String, and massage: String) {
+        let alert = UIAlertController(title: "TEST", message: "TestTest", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+            print("test")
+        }
+        let cancelAction = UIAlertAction(title: "no", style: .destructive) { _ in
+            print("test2")
+        }
+        alert.addAction(okAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true)
+    }
+    
     
     
     // MARK: - Table view data source
@@ -116,7 +131,6 @@ class FavoriteTableViewController: UITableViewController {
         
     }
     
-
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
   
@@ -137,14 +151,23 @@ class FavoriteTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let indexPathForCoreDataDelete = indexPath[1]
+        let alert = UIAlertController(title: "ВНИМАНИЕ", message: "Вы уверены что хотите удалить эту фотографию из избранного?", preferredStyle: .alert)
         
-            favoritePictureURL.remove(at: indexPath.row)
-            downloadImage.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .automatic)
+        let deleteAction = UIAlertAction(title: "DELETE", style: .destructive) { _ in
+            let indexPathForCoreDataDelete = indexPath[1]
+            
+            self.favoritePictureURL.remove(at: indexPath.row)
+            self.downloadImage.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+            
+            StorageManager.shared.deletePictureFromFavorite(numberOfRow: indexPathForCoreDataDelete)
+        }
         
+        let abortAction = UIAlertAction(title: "Cancel", style: .cancel)
         
-        StorageManager.shared.deletePictureFromFavorite(numberOfRow: indexPathForCoreDataDelete)
+        alert.addAction(deleteAction)
+        alert.addAction(abortAction)
+        present(alert, animated: true)
     }
     
     //MARK: - Navigation Bar
