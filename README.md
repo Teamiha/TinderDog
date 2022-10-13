@@ -22,4 +22,4 @@ The user browses through different images of dogs, adds the ones he likes to the
 - Система рекомендации, запоминает породы собак которых лайкал пользователь (незаивисимо от их наличия в избранном), и при нажатии на кнопку выводит название фаворита и запрашивает картинки именно этой породы. Возможно очищение базы через нажатие на соответсвующую кнопку. (CoreData)
 
 
-<img src="TinderDog/Application/Assets.xcassets/Screenshot1 1.imageset/Screenshot1.jpeg" width="256"/> <img src="TinderDog/Application/Assets.xcassets/Screenshot2 1.imageset/Screenshot2.jpeg" width="256"/> <img src="TinderDog/Application/Assets.xcassets/Screenshot3 1.imageset/Screenshot3.jpeg" width="256"/>
+<img src="TinderDog/Application/Assets.xcassets/Screenshot1 1.imageset/Screenshot1.png" width="256"/> <img src="TinderDog/Application/Assets.xcassets/Screenshot2 1.imageset/Screenshot2.png" width="256"/> <img src="TinderDog/Application/Assets.xcassets/Screenshot3 1.imageset/Screenshot3.png" width="256"/>
