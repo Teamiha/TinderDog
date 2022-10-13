@@ -1,4 +1,4 @@
-#tinderdog
+# Tinderdog
 Project based on https://dog.ceo/dog-api
 The user browses through different images of dogs, adds the ones he likes to the favorites gallery, and has the opportunity to find out which breeds he likes the most.
 
@@ -11,7 +11,6 @@ The user browses through different images of dogs, adds the ones he likes to the
 
 ------------------------------------
 
-# TinderDog
 Проект на основе https://dog.ceo/dog-api
 Пользователь просматривает разные изображения собак, добавляет понравившихся в галерею избранного, и имеет возможность узнать какие породы ему нравятся больше всего. 
 
