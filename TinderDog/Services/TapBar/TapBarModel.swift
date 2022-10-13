@@ -16,11 +16,11 @@ enum TabBarModel {
     var title: String {
         switch self {
         case .main:
-            return "Главная"
+            return "Main"
         case .favorite:
-            return "Избранное"
+            return "Favorites"
         case .recomendation:
-            return "Рекомендации"
+            return "Recommendation"
         }
     }
 

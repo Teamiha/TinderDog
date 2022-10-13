@@ -207,7 +207,7 @@ private extension MainViewController {
     //MARK: - Navigation Bar
     
     func configureNavigationBar() {
-        navigationItem.title = "Главная"
+        navigationItem.title = "Main"
         
     }
 }

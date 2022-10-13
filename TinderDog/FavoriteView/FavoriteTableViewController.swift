@@ -106,22 +106,6 @@ class FavoriteTableViewController: UITableViewController {
         }
     }
     
-    //MARK: - Alert
-    
-    func showAlert(with title: String, and massage: String) {
-        let alert = UIAlertController(title: "TEST", message: "TestTest", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
-            print("test")
-        }
-        let cancelAction = UIAlertAction(title: "no", style: .destructive) { _ in
-            print("test2")
-        }
-        alert.addAction(okAction)
-        alert.addAction(cancelAction)
-        present(alert, animated: true)
-    }
-    
-    
     
     // MARK: - Table view data source
     
@@ -151,7 +135,7 @@ class FavoriteTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let alert = UIAlertController(title: "ВНИМАНИЕ", message: "Вы уверены что хотите удалить эту фотографию из избранного?", preferredStyle: .alert)
+        let alert = UIAlertController(title: "ALERT", message: "Are you sure you want to remove this photo from your favorites?", preferredStyle: .alert)
         
         let deleteAction = UIAlertAction(title: "DELETE", style: .destructive) { _ in
             let indexPathForCoreDataDelete = indexPath[1]
@@ -173,7 +157,7 @@ class FavoriteTableViewController: UITableViewController {
     //MARK: - Navigation Bar
     
     func configureNavigationBar() {
-        navigationItem.title = "Избранное"
+        navigationItem.title = "Favorites"
         
     }
 }

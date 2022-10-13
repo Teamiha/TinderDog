@@ -59,7 +59,7 @@ class RecomendationViewController: UIViewController {
         let label = UILabel()
         var breedName = ""
         label.numberOfLines = 2
-        label.text = "Тут будет написана ваша любимая порода"
+        label.text = "Click on the button below to find out your favorite breed"
         label.textAlignment = .center
         label.font = .systemFont(ofSize: 30)
         return label
@@ -95,32 +95,37 @@ private extension RecomendationViewController{
     
     @objc func recomendationButtonTaped() {
         let favoriteBreed = StorageManager.shared.calculateFavoriteBreed()
-        let favoriteBreedText = favoriteBreed?.capitalized
-        labelRecommendBreeds.text = """
-        Ваша любимая порода:
-        \(favoriteBreedText ?? "Error")
+        if favoriteBreed == "Error" {
+            labelRecommendBreeds.text = """
+            Not enough data
+            """
+        } else {
+            let favoriteBreedText = favoriteBreed?.capitalized
+            labelRecommendBreeds.text = """
+        Your favorite breed:
+        \(favoriteBreedText ?? "error")
         """
- 
-        
-        NetworkManager.shared.fetchFavoriteBreedImage(breed: favoriteBreed!) { result in
-            switch result {
-            case .success(let imageURL):
-                
-                DispatchQueue.global().async {
-                    let data = try? Data(contentsOf: URL(string: imageURL) ?? URL(string: "https://images.dog.ceo/breeds/pitbull/20190801_154956.jpg")!)
-                    DispatchQueue.main.async {
-                        self.dogImage.image = UIImage(data: data!)
+            
+            NetworkManager.shared.fetchFavoriteBreedImage(breed: favoriteBreed!) { result in
+                switch result {
+                case .success(let imageURL):
+                    
+                    DispatchQueue.global().async {
+                        let data = try? Data(contentsOf: URL(string: imageURL) ?? URL(string: "https://images.dog.ceo/breeds/pitbull/20190801_154956.jpg")!)
+                        DispatchQueue.main.async {
+                            self.dogImage.image = UIImage(data: data!)
+                        }
                     }
+                case .failure(let error):
+                    print(error)
                 }
-            case .failure(let error):
-                print(error)
             }
         }
     }
     
     @objc func clearDataButtonTaped() {
         
-        let alert = UIAlertController(title: "ВНИМАНИЕ", message: "Вы уверены что хотите очистить базу данных рекомендаций?", preferredStyle: .alert)
+        let alert = UIAlertController(title: "ALERT", message: "Are you sure you want to clear the recommendation database?", preferredStyle: .alert)
         
         let deleteAction = UIAlertAction(title: "DELETE", style: .destructive) { _ in
             
@@ -177,7 +182,7 @@ private extension RecomendationViewController{
     //MARK: - Navigation Bar
     
     func configureNavigationBar() {
-        navigationItem.title = "Рекомендации"
+        navigationItem.title = "Recommendation"
         
     }
     
